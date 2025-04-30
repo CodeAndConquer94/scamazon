@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Build Scamazon App",
+            "command": "/usr/bin/g++",
+            "args": [
+                "src/main.cpp",
+                "src/Database/DatabaseManager.cpp",
+                "src/userClasses/User.cpp",
+                "src/userClasses/Customer.cpp",
+                "src/userClasses/Seller.cpp",
+                "src/userClasses/Admin.cpp",
+                "src/Products/Product.cpp",
+                "src/UtilityClasses/Address.cpp",
+                "src/UtilityClasses/CartItem.cpp",
+                "src/UtilityClasses/Date.cpp",
+                "src/UtilityClasses/PaymentMethod.cpp",
+                "src/UtilityClasses/ShoppingCart.cpp",
+                "src/UtilityClasses/Orders/Order.cpp",
+                "src/UtilityClasses/Orders/CustomerOrder.cpp",
+                "src/UtilityClasses/Orders/SellerOrder.cpp",
+                "src/UtilityClasses/Orders/OrderItem.cpp",
+                "src/Portals/adminPortal.cpp",
+                "src/Portals/customerPortal.cpp",
+                "src/Portals/sellerPortal.cpp",
+                "-o",
+                "scamazon_app",
+                "-I./src",
+                "-g",
+                "-std=c++17",
+                "-lsqlite3",
+                "-lcrypto"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Compiles all source files for Scamazon app"
+        }
+    ]
+}
