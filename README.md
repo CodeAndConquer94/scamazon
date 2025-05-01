@@ -21,9 +21,9 @@ For a debian-based system, Mac, or Windows I have included a script to run to in
 
 **Prerequisites:**
 
-1.  A C++ compiler supporting C++11 or later (e.g., g++ on Linux/Fedora).
-2.  SQLite3 development libraries (e.g., `sudo dnf install sqlite-devel` on Fedora).
-3.  OpenSSL development libraries (e.g., `sudo dnf install openssl-devel` on Fedora).
+1.  A C++ compiler supporting C++11 or later (e.g., g++ on Linux).
+2.  SQLite3 development libraries (e.g., `sudo apt install sqlite-devel` on Debian Systems).
+3.  OpenSSL development libraries (e.g., `sudo apt install openssl-devel` on Systems).
 
 ```bash
 # Compile all .cpp files and link against SQLite3 and OpenSSL crypto libraries
@@ -74,7 +74,7 @@ This project is a mostly complete simulation of an e-commerce platform.
 - Database Persistence: Uses SQLite3 via DatabaseManager class for users, products, addresses, payment methods, and orders (customer_orders, order_items, seller_orders).
 ## Known Issues / Incomplete Features:
 - Refund Logic Discrepancy: The OrderTables.md design document specifies Refunded and RefundDate columns in the order_items table for tracking refunds precisely. However, the provided schema.sql does not include these columns. 
-- The current Admin::refundCustomer function only adjusts the seller's balance in the users table and does not mark the specific order_item as refunded in the database. This means refunds aren't persistently tracked per item, and an item could potentially be refunded multiple times without a proper record in the order_items table.
+- The current `Admin::refundCustomer` function only adjusts the seller's balance in the users table and does not mark the specific order_item as refunded in the database. This means refunds aren't persistently tracked per item, and an item could potentially be refunded multiple times without a proper record in the order_items table.
 - Error Handling: While some input validation (e.g., for registration, menu choices) exists, error handling for database operations or more complex edge cases could be more robust (e.g., handling failed database connections gracefully after initialization, more specific error messages).
 - Concurrency: As a single-user console application, no concurrency control is implemented. Multiple simultaneous operations could lead to data inconsistencies.Product Types: The Product class has a type field, but there's no specific logic or polymorphism based on product type implemented (e.g., different attributes or behaviors for 'Electronics' vs 'Books').
 ## Manual Introduction
@@ -105,36 +105,6 @@ Scamazon is a console-based simulation of an online shopping platform. It allows
     - `Refund Customer Order Item`: Process a refund for a specific item within a customer's order. Requires the OrderID and the specific OrderItemID. Note: This currently deducts the item's subtotal from the seller's balance in the database but does not mark the item itself as refunded.
     - `Delete Product`: Permanently remove any product listing from the platform using its ProductID.
     - `Logout`: Return to the main menu.Code DesignThe project is implemented using Object-Oriented Programming (OOP) principles in C++.
-## 🔧 Functions to Test
-
-Scamazon offers a wide range of functionality across multiple user roles. Below are recommended features for testing:
-
-1. **Register as a New Customer**  
-   Tests the customer account creation flow with input validation.
-
-2. **Add a Payment Method**  
-   Exercises user input, credit card validation, and secure handling.
-
-3. **Add an Address**  
-   Demonstrates address entry and storage for use during checkout.
-
-4. **Search for Products**  
-   Tests the product catalog query system using name or category.
-
-5. **Add to Cart and Place an Order**  
-   Covers cart management, payment selection, and order processing.
-
-6. **Register as a New Seller**  
-   Allows role-specific registration with seller privileges.
-
-7. **Add a New Product (as Seller)**  
-   Adds inventory to the catalog and associates it with the seller.
-
-8. **Log in as Admin** *(credentials provided below)*  
-   Access Admin panel with elevated privileges.
-
-9. **Delete a Product (as Admin)**  
-   Demonstrates protected operations and product removal logic. Use Product ID 420, should be named `stupid chair`
 
 ---
 
@@ -144,8 +114,6 @@ Scamazon offers a wide range of functionality across multiple user roles. Below 
 **Password:** `adminpassword`
 
 ---
-
-> 💡 *These actions together touch over 75% of the system's total functionality.*
 
 ## Core Entities: 
 **Classes represent key concepts:**
