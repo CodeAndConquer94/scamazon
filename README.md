@@ -8,22 +8,25 @@ Welcome to Scamazon, a command-line based e-commerce platform simulation written
 
 This project uses C++ and relies on the SQLite3 library for database management and the OpenSSL library for password hashing.
 
-For a debian-based system, Mac, or Windows I have included a script to run to install all dependencies and build and execute the program. Debian based systems should run the codespaces script.
+For Mac, Windows and most Linux distributions I have included a script to run to install all dependencies and build and execute the program.
 
-1. Make the script executable for debian systems run this command from the project root directory `sudo chmod +x ./buildAndRunCodespaces.sh`.
+1. Make the script executable: for Linux systems run this command from the project root directory Linux: `sudo chmod +x ./build_Linux.sh`.
 2. Execute the script; 
-   - Debian or Github Codespaces: `./buildAndRunCodespaces.sh`
-   - Windows: `./buildAndRunWindows.ps1`
-   - Mac: `/.buildAndRunMac.sh`
+   - Linux: `./build_Linux.sh`
+   - Windows: `build_Windows.ps1` -- (Navigate to the codebase root, right-click the script, click "run with powershell")
+   - Mac: `/.build_Mac.sh`
 3. The script will automatically launch the program once it is finished installing dependencies and compiling.
 
 ### For other systems
-
+    You should not need to install these, most systems have an included script to build and run.
 **Prerequisites:**
 
 1.  A C++ compiler supporting C++11 or later (e.g., g++ on Linux).
 2.  SQLite3 development libraries (e.g., `sudo apt install sqlite-devel` on Debian Systems).
 3.  OpenSSL development libraries (e.g., `sudo apt install openssl-devel` on Systems).
+   
+## Compile command
+    You should not need to run this, most systems have an included script to build and run.
 
 ```bash
 # Compile all .cpp files and link against SQLite3 and OpenSSL crypto libraries
@@ -81,7 +84,7 @@ This project is a mostly complete simulation of an e-commerce platform.
 
 Scamazon is a console-based simulation of an online shopping platform. It allows users to register as Customers or Sellers, or log in as an Administrator, each with a distinct set of capabilities accessed through dedicated text-based portals. The system manages user accounts, product listings, shopping carts, order processing, and basic financial tracking for sellers.
 ### How to Use
-- Launch: Run the compiled executable `./scamazon_app`.
+- Launch: Run the compiled executable `/build/scamazon`.
 - Main Menu: You'll be presented with options to:
   - Login: Enter your username/email and password. The system authenticates against the database using hashed passwords.
   - Register: Create a new Customer or Seller account. You'll be prompted for first name, last name, a unique username, a unique email, and a password. Password complexity rules (length, character types) are enforced. Username and email uniqueness are checked against the database.
