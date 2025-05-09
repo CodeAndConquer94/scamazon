@@ -31,14 +31,14 @@ Date::Date( int mn, int dy, int yr )
 
 
 Date::Date(string& dtString){
-    stringstream ss(dtString);
+    istringstream iss(dtString);
     string token;
 
-    getline(ss, token, '/');
+    getline(iss, token, '/');
     month = stoi(token);
-    getline(ss, token, '/');
+    getline(iss, token, '/');
     day = stoi(token);
-    getline(ss, token, '/');
+    getline(iss, token, '/');
     year = stoi(token);
     }
 

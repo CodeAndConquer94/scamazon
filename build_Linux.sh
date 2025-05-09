@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # WSL-compatible bootstrap script for Scamazon with multi-distro support
-# This script avoids complex syntax to prevent line ending issues
 
 echo "Starting Scamazon bootstrap script..."
 
