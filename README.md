@@ -10,7 +10,7 @@ This project uses C++ and relies on the SQLite3 library for database management 
 
 For Mac, Windows and most Linux distributions I have included a script to run to install all dependencies and build and execute the program.
 
-1. Make the script executable: for Linux systems run this command from the project root directory Linux: `sudo chmod +x ./build_Linux.sh`.
+1. Make the script executable: for Linux systems run this command from the project root directory Linux: `sudo chmod +x build_Linux.sh`.
 2. Execute the script; 
    - Linux: `./build_Linux.sh`
    - Windows: `build_Windows.ps1` -- (Navigate to the codebase root, right-click the script, click "run with powershell")
